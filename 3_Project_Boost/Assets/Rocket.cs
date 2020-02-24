@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Rocket : MonoBehaviour
 {
@@ -31,8 +32,13 @@ public class Rocket : MonoBehaviour
             case "Fuel":
                 print("You've gained fuel!");
                 break;
+            case "Finish":
+                print("Finished Level");
+                SceneManager.LoadScene(1);
+                break;
             default:
                 print("You dead boi");
+                SceneManager.LoadScene(0);
                 break;
         }
     }

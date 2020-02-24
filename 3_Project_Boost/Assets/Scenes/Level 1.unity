@@ -897,6 +897,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Landing Pad
       objectReference: {fileID: 0}
+    - target: {fileID: 2212855357206877194, guid: 2a19335f96c051a439152a9d30b713d2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a19335f96c051a439152a9d30b713d2, type: 3}
 --- !u!4 &2141592955 stripped
