@@ -22,6 +22,10 @@ public class Oscillator : MonoBehaviour
     void Update()
     {
         //protect against period = 0 to keep it not NaN
+        if (period <= Mathf.Epsilon)
+        {
+            return;
+        }
         float cycles = Time.time / period; //grows continually from zero
 
         const float tau = Mathf.PI * 2f;

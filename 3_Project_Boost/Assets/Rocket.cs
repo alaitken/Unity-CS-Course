@@ -22,6 +22,8 @@ public class Rocket : MonoBehaviour
     [SerializeField] ParticleSystem deathParticles;
     [SerializeField] ParticleSystem levelLoadParticles;
 
+    [SerializeField] float levelLoadDelay = 2f;
+
     State state = State.Alive;
     int level = 0;
     
@@ -73,7 +75,7 @@ public class Rocket : MonoBehaviour
         mainEngineParticles.Stop();
         audio.PlayOneShot(levelLoad);
         levelLoadParticles.Play();
-        Invoke("LoadNextScene", 1f);
+        Invoke("LoadNextScene", levelLoadDelay);
     }
 
     private void StartDeathSequence()
@@ -83,7 +85,7 @@ public class Rocket : MonoBehaviour
         mainEngineParticles.Stop();
         audio.PlayOneShot(death);
         deathParticles.Play();
-        Invoke("LoadFirstLevel", 1f);
+        Invoke("LoadFirstLevel", levelLoadDelay);
     }
 
     private void LoadNextScene()
