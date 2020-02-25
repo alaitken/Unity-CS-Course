@@ -421,7 +421,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807293e7a63abd448a257ec765cdbe6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementVector: {x: 0, y: 0, z: 0}
+  movementVector: {x: 0, y: 10, z: 0}
+  period: 2
   movementFactor: 0
 --- !u!1 &946974084
 GameObject:
@@ -845,6 +846,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1863299095}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1878128244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4359028145568702246, guid: e2ba5ba2f0aef2247b28be9af6b18a98,
+    type: 3}
+  m_PrefabInstance: {fileID: 4359028144193437174}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1878128248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878128244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 807293e7a63abd448a257ec765cdbe6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementVector: {x: 10, y: 10, z: 0}
+  period: 2
+  movementFactor: 0
 --- !u!1001 &2106479818
 PrefabInstance:
   m_ObjectHideFlags: 0
