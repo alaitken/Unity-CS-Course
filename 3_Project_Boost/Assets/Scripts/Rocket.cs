@@ -26,6 +26,8 @@ public class Rocket : MonoBehaviour
 
     State state = State.Alive;
     int level = 0;
+
+    bool collisionDetect = true;
     
 
     // Start is called before the first frame update
@@ -43,6 +45,10 @@ public class Rocket : MonoBehaviour
             RespondToThrustInput();
             RespondToRotateInput();
         }
+        if (Debug.isDebugBuild)
+        {
+            RespondToDebugInput();
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -51,20 +57,23 @@ public class Rocket : MonoBehaviour
         {
             return;
         }
-        switch (collision.gameObject.tag)
+        if (collisionDetect)
         {
-            case "Friendly":
-                print("You're OK!");
-                break;
-            case "Fuel":
-                print("You've gained fuel!");
-                break;
-            case "Finish":
-                StartSuccessSequence();
-                break;
-            default:
-                StartDeathSequence();
-                break;
+            switch (collision.gameObject.tag)
+            {
+                case "Friendly":
+                    print("You're OK!");
+                    break;
+                case "Fuel":
+                    print("You've gained fuel!");
+                    break;
+                case "Finish":
+                    StartSuccessSequence();
+                    break;
+                default:
+                    StartDeathSequence();
+                    break;
+            }
         }
     }
 
@@ -138,5 +147,17 @@ public class Rocket : MonoBehaviour
             audio.PlayOneShot(mainEngine);
         }
         mainEngineParticles.Play();
+    }
+
+    private void RespondToDebugInput()
+    {
+        if (Input.GetKey(KeyCode.L))
+        {
+            SceneManager.LoadScene(1);
+        }
+        else if (Input.GetKey(KeyCode.C))
+        {
+            collisionDetect = !collisionDetect;
+        }
     }
 }
