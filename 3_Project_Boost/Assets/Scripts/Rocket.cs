@@ -25,7 +25,6 @@ public class Rocket : MonoBehaviour
     [SerializeField] float levelLoadDelay = 2f;
 
     State state = State.Alive;
-    int level = 0;
 
     bool collisionDetect = true;
     
@@ -99,14 +98,18 @@ public class Rocket : MonoBehaviour
 
     private void LoadNextScene()
     {
-        level++;
-        SceneManager.LoadScene(level);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (currentSceneIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(0);
+        }
+        int nextSceneIndex = currentSceneIndex + 1;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 
     private void LoadFirstLevel()
     {
-        level = 0;
-        SceneManager.LoadScene(level);
+        SceneManager.LoadScene(0);
     }
 
     private void RespondToThrustInput()
