@@ -7,6 +7,10 @@ public class LoadLevel : MonoBehaviour
 {
     [SerializeField] float waitTime = 2f;
 
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     // Start is called before the first frame update
     void Start()
     {
